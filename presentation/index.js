@@ -1,5 +1,5 @@
 // Import React
-import React from "react";
+import React from "react"
 
 // Import Spectacle Core tags
 import {
@@ -9,64 +9,76 @@ import {
   Heading,
   ListItem,
   List,
+  Link,
+  Layout,
+  Notes,
+  Fill,
   Quote,
   Slide,
-  Text
-} from "spectacle";
+  Text,
+} from "spectacle"
+
+import CodeSlide from "spectacle-code-slide"
 
 // Import theme
-import createTheme from "spectacle/lib/themes/default";
+import createTheme from "spectacle/lib/themes/default"
 
 // Require CSS
-require("normalize.css");
+require("normalize.css")
 
-const theme = createTheme({
-  primary: "white",
+const colors = {
+  primary: "#FAFAFA",
   secondary: "#1F2022",
-  tertiary: "#03A9FC",
-  quarternary: "#CECECE"
-}, {
+  tertiary: "#FFBF00",
+  quarternary: "#CECECE",
+}
+
+const theme = createTheme(colors, {
   primary: "Montserrat",
-  secondary: "Helvetica"
-});
+  secondary: "Helvetica",
+})
 
 export default class Presentation extends React.Component {
   render() {
     return (
-      <Deck transition={["zoom", "slide"]} transitionDuration={500} theme={theme}>
-        <Slide transition={["zoom"]} bgColor="primary">
+      <Deck
+        transition={["zoom", "slide"]}
+        transitionDuration={500}
+        theme={theme}
+        contentWidth={1200}
+        contentHeight={900}
+      >
+        {/* Title slide */}
+        <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Spectacle Boilerplate
+            Presentation Title
           </Heading>
           <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
-            open the presentation/index.js file to get started
+            Maxim Schepelin, Where, When
           </Text>
         </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={6} textColor="primary" caps>Typography</Heading>
-          <Heading size={1} textColor="secondary">Heading 1</Heading>
-          <Heading size={2} textColor="secondary">Heading 2</Heading>
-          <Heading size={3} textColor="secondary">Heading 3</Heading>
-          <Heading size={4} textColor="secondary">Heading 4</Heading>
-          <Heading size={5} textColor="secondary">Heading 5</Heading>
-          <Text size={6} textColor="secondary">Standard text</Text>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
-          <Heading size={6} textColor="secondary" caps>Standard List</Heading>
-          <List>
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
-          </List>
-        </Slide>
+
+        {/* Main slide. Copy it to have more */}
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite>Author</Cite>
-          </BlockQuote>
+          <Notes>
+            <p>Put the notes here</p>
+          </Notes>
+          <Heading size={3} textColor="primary">Main slide</Heading>
+        </Slide>
+
+        {/* last slide of a presentation */}
+        <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+          <Heading size={3} textColor="primary">
+            Questions?
+          </Heading>
+          <Text textColor="tertiary">
+            Maxim Schepelin
+          </Text>
+          <Text textColor="tertiary">
+            m.schepelin@gmail.com
+          </Text>
         </Slide>
       </Deck>
-    );
+    )
   }
 }
