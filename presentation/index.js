@@ -1,3 +1,5 @@
+import { css } from 'emotion'
+
 // Import React
 import React from "react"
 
@@ -37,6 +39,11 @@ const theme = createTheme(colors, {
   primary: "Montserrat",
   secondary: "Helvetica",
 })
+const bodyStyle = css`
+  background: ${colors.secondary};
+`
+document.querySelector("body").classList.add(bodyStyle)
+
 
 export default class Presentation extends React.Component {
   render() {
